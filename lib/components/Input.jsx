@@ -32,6 +32,10 @@ class Input extends Component {
     this.setState({ id: null });
   }
 
+  deleteAllItems(){
+    this.props.deleteAllItems();
+  }
+
   updateQuantity(e){
     this.setState({ quantity: e.target.value });
   }
@@ -62,7 +66,7 @@ class Input extends Component {
         <input id="quantity" value={this.state.quantity} type="text" placeholder="Quantity (incl. unit)" onChange={(e) => { this.updateQuantity(e) }} />
         <button id="submit-button" type="button" onClick={() => { this.createNewItem(name, aisle, note, quantity, id); }}>Submit</button>
         <button id="sort-items-button" type="button">Sort Items</button>
-        <button id="delete-all-items-button" type="button" >Delete ALL Items!</button>
+        <button id="delete-all-items-button" type="button" onClick={() => { this.deleteAllItems(); }}>Delete ALL Items!</button>
         </div>
     );
   }

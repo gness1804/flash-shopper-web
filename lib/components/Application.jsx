@@ -31,6 +31,13 @@ class Application extends Component {
     this.setState({ items }, () => this.store());
   }
 
+  deleteAllItems = () => {
+    const warning = confirm("Warning! You are about to delete ALL your items! This cannot be undone!");
+    if (warning) {
+      this.setState({ items: [] }, () => this.store());
+    }
+  }
+
   store() {
     localStorage.setItem('items', JSON.stringify(this.state.items));
   }
@@ -42,7 +49,7 @@ class Application extends Component {
     return (
       <div>
         <h1 id="top-of-page">My Grocery List</h1>
-        <Input addNewItem={this.addNewItem.bind(this)} />
+        <Input addNewItem={this.addNewItem.bind(this)} deleteAllItems={this.deleteAllItems}/>
         <Output items={items} deleteItem={this.deleteItem} />
         <a href="#top-of-page"><button id="top-of-page-button" type="button">Top of Page</button></a>
       </div>
@@ -50,6 +57,5 @@ class Application extends Component {
   }
 
 }
-
 
 export default Application;
