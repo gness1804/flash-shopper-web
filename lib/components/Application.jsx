@@ -12,8 +12,12 @@ class Application extends Component {
     };
   }
 
-  addNewItem(name, aisle, note, quantity, id){
-    console.log(name);
+  componentDidMount(){
+    //render ideas to page; pass the info into Output
+  }
+
+  addNewItem(newItem){
+    console.log(newItem);
   }
 
   render() {

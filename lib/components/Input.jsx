@@ -18,8 +18,14 @@ class Input extends Component {
 
   createNewItem(name, aisle, note, quantity, id) {
     this.setState({ id: Date.now() });
-    // console.log(this.props.addNewItem);
-    this.props.addNewItem(name, aisle, note, quantity, id);
+    const newItem = {
+      name,
+      aisle,
+      note,
+      quantity,
+      id,
+    };
+    this.props.addNewItem(newItem);
   }
 
   updateQuantity(e){
