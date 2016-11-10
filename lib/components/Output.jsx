@@ -4,20 +4,21 @@ const ReactDOM = require('react-dom');
 
 class Output extends Component {
 
-  removeItem(id){
+  deleteItem(id) {
     console.log(id);
   }
 
   render() {
 
+    // console.log(this.props);
+
     let itemList;
-    const { items, deleteItem } = this.props;
+    const { items } = this.props;
     if (items) {
       itemList = items.map( item =>
         <ItemCard
           {...item}
-          deleteItem={ deleteItem }
-          removeItem={ this.removeItem }
+          deleteItem={this.deleteItem}
         />
       );
     }

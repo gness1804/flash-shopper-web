@@ -20,14 +20,14 @@ class Application extends Component {
     this.setState({ items: [] });}
   }
 
+  deleteItem(id) {
+    console.log(id);
+  }
+
   addNewItem(newItem) {
     this.state.items.push(newItem);
     const { items } = this.state;
     this.setState({ items }, () => this.store());
-  }
-
-  deleteItem(id){
-    
   }
 
   store() {
@@ -42,7 +42,7 @@ class Application extends Component {
       <div>
         <h1 id="top-of-page">My Grocery List</h1>
         <Input addNewItem={this.addNewItem.bind(this)} />
-        <Output items={items} deleteItem={this.deleteItem.bind(this)}/>
+        <Output items={items} deleteItem={() => { this.deleteItem }}/>
         <a href="#top-of-page"><button id="top-of-page-button" type="button">Top of Page</button></a>
       </div>
     );
