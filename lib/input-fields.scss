@@ -1,0 +1,9 @@
+@import "variables.scss";
+
+@mixin input-standard {
+  border: 1px solid black;
+}
+
+@mixin input-standard-hover {
+   border: 1px solid magenta;
+}
