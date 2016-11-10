@@ -17,22 +17,6 @@ class Output extends Component {
       );
     }
 
-  //   if (contactArray) {
-  //    contactList = contactArray.map(c =>
-  //      <ContactCard
-  //        {...c}
-  //        user={this.props.user}
-  //        imgStorage={this.props.imgStorage}
-  //        contactImgID={c.contactID}
-  //        contactTextID={c.key}
-  //        key={c.key}
-  //        submitEdit = {this.props.submitEdit}
-  //        toggleFollowup={this.props.toggleFollowup}
-  //        deleteContact = {this.props.deleteContact}
-  //      />
-  //    );
-  //  }
-
     return (
       <div>
         <article id="item-status-message">

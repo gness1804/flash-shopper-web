@@ -45,6 +45,12 @@ class Application extends Component {
     localStorage.setItem('items', JSON.stringify(this.state.items));
   }
 
+  sortItems = () => {
+    // console.log(this.state.items);
+    const newArr = this.state.items.sort((a, b) => { return a.aisle - b.aisle });
+    this.setState({ items: newArr }, () => this.store());
+  }
+
   render() {
 
     const { items } = this.state;
@@ -52,7 +58,7 @@ class Application extends Component {
     return (
       <div>
         <h1 id="top-of-page">My Grocery List</h1>
-        <Input addNewItem={this.addNewItem.bind(this)} deleteAllItems={this.deleteAllItems}/>
+        <Input addNewItem={this.addNewItem.bind(this)} deleteAllItems={this.deleteAllItems} sortItems={this.sortItems} />
         <Output items={items} deleteItem={this.deleteItem} />
         <a href="#top-of-page"><button id="top-of-page-button" type="button">Top of Page</button></a>
       </div>
