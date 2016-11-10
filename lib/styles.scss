@@ -2,6 +2,9 @@
 @import "mixins.scss";
 @import "debug.scss";
 @import "typography.scss";
+@import "input-fields.scss";
+@import "mobile.scss";
+@import "buttons.scss";
 
 html {
   background: $main-background;
@@ -12,4 +15,25 @@ html {
 
 h1 {
   @include headline;
+}
+
+#input-items-container {
+  text-align: center;
+}
+
+input {
+  @include input-standard;
+
+  &:hover{
+    @include input-standard-hover;
+  }
+
+}
+
+#submit-button {
+  @include submit-button;
+
+  &:hover {
+    @include submit-button-hover;
+  }
 }
