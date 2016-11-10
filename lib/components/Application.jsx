@@ -46,7 +46,6 @@ class Application extends Component {
   }
 
   sortItems = () => {
-    // console.log(this.state.items);
     const newArr = this.state.items.sort((a, b) => { return a.aisle - b.aisle });
     this.setState({ items: newArr }, () => this.store());
   }
