@@ -6,8 +6,8 @@ class Category extends Component {
   render() {
     return (
       <div>
-        <select id="category">
-               <option selected="selected">Please choose a category.</option>
+        <select id="category" defaultValue="Please choose a category.">
+               <option>Please choose a category.</option>
                <option>Bakery</option>
                <option>Bottled Water</option>
                <option>Breads/PBJ/Honey</option>
