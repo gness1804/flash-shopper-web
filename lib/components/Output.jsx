@@ -4,7 +4,14 @@ const ReactDOM = require('react-dom');
 class Output extends Component {
 
   renderItems(item){
-    console.log(item);
+    return(
+      <div id={item.id} className="each-idea-container">
+        <h2 contentEditable="false" className="editable-item">Item: {item.name}</h2>
+        <h3 contentEditable="false" className="editable-aisle">Aisle: {item.aisle}</h3>
+        <h4 contentEditable="true" className="note">Your Note: {item.note}</h4>
+        <h5 contentEditable="true" className="quantity">Quantity: {item.quantity}</h5>
+      </div>
+    );
   }
 
   render() {
