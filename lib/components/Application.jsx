@@ -12,11 +12,15 @@ class Application extends Component {
     };
   }
 
+  addNewItem(){
+
+  }
+
   render() {
     return (
       <div>
         <h1 id="top-of-page">My Grocery List</h1>
-        <Input />
+        <Input addNewItem={this.addNewItem()} />
         <Output />
         <a href="#top-of-page"><button id="top-of-page-button" type="button">Top of Page</button></a>
       </div>

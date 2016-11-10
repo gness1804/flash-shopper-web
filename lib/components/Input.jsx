@@ -5,8 +5,8 @@ import Category from './Category';
 const ReactDOM = require('react-dom');
 
 class Input extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: '',
       aisle: '',
@@ -16,8 +16,9 @@ class Input extends Component {
     };
   }
 
-  createNewItem() {
-
+  createNewItem(name, aisle, note, quantity, id) {
+    // console.log(this.props.addNewItem);
+    console.log(name);
   }
 
   updateQuantity(e){
@@ -38,6 +39,7 @@ class Input extends Component {
 
   render() {
 
+    const { name, aisle, note, quantity, id } = this.state;
 
     return (
       <div id="input-items-container">
@@ -47,7 +49,7 @@ class Input extends Component {
         <input id="aisle-input" type="text" placeholder="Aisle" onChange={(e) => { this.updateAisle(e); }} />
         <input id="note" type="text" placeholder="Note" onChange={(e) => { this.updateNote(e) }} />
         <input id="quantity" type="text" placeholder="Quantity (incl. unit)" onChange={(e) => { this.updateQuantity(e) }} />
-        <button id="submit-button" type="button" onClick={() => { this.createNewItem(); }}>Submit</button>
+        <button id="submit-button" type="button" onClick={() => { this.createNewItem(name, aisle, note, quantity, id); }}>Submit</button>
         <button id="sort-items-button" type="button">Sort Items</button>
         <button id="delete-all-items-button" type="button" >Delete ALL Items!</button>
         </div>
