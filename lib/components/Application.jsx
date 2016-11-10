@@ -21,8 +21,11 @@ class Application extends Component {
   }
 
   deleteItem = (id) => {
-    const newArr = this.state.items.filter((item) => { return item.id !== id });
-    this.setState({ items: newArr }, () => { this.store(); });
+    const warning = confirm('Are you sure you want to delete this item?');
+    if (warning) {
+      const newArr = this.state.items.filter((item) => { return item.id !== id });
+      this.setState({ items: newArr }, () => { this.store(); });
+    }
   }
 
   addNewItem(newItem) {
