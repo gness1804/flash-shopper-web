@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ItemCard from './ItemCard';
 const ReactDOM = require('react-dom');
 
 class Output extends Component {
@@ -21,7 +22,31 @@ class Output extends Component {
 
   render() {
 
+    let itemList;
     const { items } = this.props;
+    if (items) {
+      itemList = items.map( item =>
+        <ItemCard
+          {...item}
+        />
+      );
+    }
+
+  //   if (contactArray) {
+  //    contactList = contactArray.map(c =>
+  //      <ContactCard
+  //        {...c}
+  //        user={this.props.user}
+  //        imgStorage={this.props.imgStorage}
+  //        contactImgID={c.contactID}
+  //        contactTextID={c.key}
+  //        key={c.key}
+  //        submitEdit = {this.props.submitEdit}
+  //        toggleFollowup={this.props.toggleFollowup}
+  //        deleteContact = {this.props.deleteContact}
+  //      />
+  //    );
+  //  }
 
     return (
       <div>
@@ -29,9 +54,7 @@ class Output extends Component {
 
         </article>
         <section id="items-master-container">
-          <ul>
-            <li>{items.map(this.renderItems)}</li>
-          </ul>
+          {itemList}
         </section>
       </div>
     );
