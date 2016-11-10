@@ -21,7 +21,8 @@ class Application extends Component {
   }
 
   deleteItem = (id) => {
-    console.log(id);
+    const newArr = this.state.items.filter((item) => { return item.id !== id });
+    this.setState({ items: newArr }, () => { this.store(); });
   }
 
   addNewItem(newItem) {

@@ -9,7 +9,7 @@ class ItemCard extends Component {
 
   render() {
 
-    const { name, aisle, quantity, note, id, deleteItem } = this.props;
+    const { name, aisle, quantity, note, id } = this.props;
 
     return (
       <div id={id} className="each-idea-container">

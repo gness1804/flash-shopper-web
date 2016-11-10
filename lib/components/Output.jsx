@@ -4,13 +4,7 @@ const ReactDOM = require('react-dom');
 
 class Output extends Component {
 
-  // deleteItem(id) {
-  //   this.props.remove(id);
-  // }
-
   render() {
-
-    // console.log(this.props);
 
     let itemList;
     const { items } = this.props;
