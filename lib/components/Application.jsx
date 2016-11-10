@@ -18,7 +18,12 @@ class Application extends Component {
 
   addNewItem(newItem) {
     this.state.items.push(newItem);
-    
+    const { items } = this.state;
+    this.setState({ items }, () => this.store());
+  }
+
+  store() {
+    localStorage.setItem('items', JSON.stringify(this.state.items));
   }
 
   render() {
