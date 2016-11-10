@@ -38,7 +38,7 @@ class Application extends Component {
       <div>
         <h1 id="top-of-page">My Grocery List</h1>
         <Input addNewItem={this.addNewItem.bind(this)} />
-        <Output />
+        <Output items={items} />
         <a href="#top-of-page"><button id="top-of-page-button" type="button">Top of Page</button></a>
       </div>
     );
