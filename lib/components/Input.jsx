@@ -16,16 +16,20 @@ class Input extends Component {
     };
   }
 
-  createNewItem(name, aisle, note, quantity, id) {
-    this.setState({ id: Date.now() });
+  createNewItem(name, aisle, note, quantity) {
     const newItem = {
       name,
       aisle,
       note,
       quantity,
-      id,
+      id: Date.now(),
     };
     this.props.addNewItem(newItem);
+    this.setState({ name: '' });
+    this.setState({ aisle: '' });
+    this.setState({ note: '' });
+    this.setState({ quantity: null });
+    this.setState({ id: null });
   }
 
   updateQuantity(e){
@@ -50,12 +54,12 @@ class Input extends Component {
 
     return (
       <div id="input-items-container">
-        <input id="item-input" type="text" placeholder="Item Name" list="groceries" onChange={(e) => { this.updateName(e); }} />
+        <input id="item-input" value={this.state.name} type="text" placeholder="Item Name" list="groceries" onChange={(e) => { this.updateName(e); }} />
         <Datalist />
         <Category />
-        <input id="aisle-input" type="text" placeholder="Aisle" onChange={(e) => { this.updateAisle(e); }} />
-        <input id="note" type="text" placeholder="Note" onChange={(e) => { this.updateNote(e) }} />
-        <input id="quantity" type="text" placeholder="Quantity (incl. unit)" onChange={(e) => { this.updateQuantity(e) }} />
+        <input id="aisle-input" value={this.state.aisle} type="text" placeholder="Aisle" onChange={(e) => { this.updateAisle(e); }} />
+        <input id="note" value={this.state.note} type="text" placeholder="Note" onChange={(e) => { this.updateNote(e) }} />
+        <input id="quantity" value={this.state.quantity} type="text" placeholder="Quantity (incl. unit)" onChange={(e) => { this.updateQuantity(e) }} />
         <button id="submit-button" type="button" onClick={() => { this.createNewItem(name, aisle, note, quantity, id); }}>Submit</button>
         <button id="sort-items-button" type="button">Sort Items</button>
         <button id="delete-all-items-button" type="button" >Delete ALL Items!</button>
