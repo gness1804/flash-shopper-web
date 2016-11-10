@@ -13,7 +13,11 @@ class Application extends Component {
   }
 
   componentDidMount(){
-    //render ideas to page; pass the info into Output
+    const items = JSON.parse(localStorage.getItem('items'));
+    if (items) {
+      this.setState({ items });
+    } else {
+    this.setState({ items: [] });}
   }
 
   addNewItem(newItem) {
@@ -27,6 +31,8 @@ class Application extends Component {
   }
 
   render() {
+
+    const { items } = this.state;
 
     return (
       <div>
