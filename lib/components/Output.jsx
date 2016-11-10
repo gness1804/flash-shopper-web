@@ -7,11 +7,12 @@ class Output extends Component {
   render() {
 
     let itemList;
-    const { items } = this.props;
+    const { items, deleteItem } = this.props;
     if (items) {
       itemList = items.map( item =>
         <ItemCard
           {...item}
+          deleteItem={ deleteItem }
         />
       );
     }
