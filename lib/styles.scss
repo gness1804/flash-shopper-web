@@ -1,2 +1,15 @@
 @import "variables.scss";
-@import "mixins.scss"; @import "debug.scss"
+@import "mixins.scss";
+@import "debug.scss";
+@import "typography.scss";
+
+html {
+  background: $main-background;
+  font-family: $main-font;
+  height: 2000px;
+  text-align: center;
+}
+
+h1 {
+  @include headline;
+}

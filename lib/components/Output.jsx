@@ -10,6 +10,7 @@ class Output extends Component {
         <h3 contentEditable="false" className="editable-aisle">Aisle: {item.aisle}</h3>
         <h4 contentEditable="true" className="note">Your Note: {item.note}</h4>
         <h5 contentEditable="true" className="quantity">Quantity: {item.quantity}</h5>
+        <button className="delete-button">Delete Item</button>
       </div>
     );
   }
@@ -27,7 +28,6 @@ class Output extends Component {
           <ul>
             <li>{items.map(this.renderItems)}</li>
           </ul>
-
         </section>
       </div>
     );
