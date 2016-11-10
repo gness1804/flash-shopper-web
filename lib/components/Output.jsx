@@ -3,7 +3,11 @@ const ReactDOM = require('react-dom');
 
 class Output extends Component {
 
-  renderItems(item){
+  deleteItem(){
+    console.log("test");
+  }
+
+  renderItems(item) {
     return(
       <div id={item.id} className="each-idea-container">
         <h2 contentEditable="false" className="editable-item">Item: {item.name}</h2>

@@ -26,6 +26,10 @@ class Application extends Component {
     this.setState({ items }, () => this.store());
   }
 
+  deleteItem(id){
+    
+  }
+
   store() {
     localStorage.setItem('items', JSON.stringify(this.state.items));
   }
@@ -38,7 +42,7 @@ class Application extends Component {
       <div>
         <h1 id="top-of-page">My Grocery List</h1>
         <Input addNewItem={this.addNewItem.bind(this)} />
-        <Output items={items} />
+        <Output items={items} deleteItem={this.deleteItem.bind(this)}/>
         <a href="#top-of-page"><button id="top-of-page-button" type="button">Top of Page</button></a>
       </div>
     );
