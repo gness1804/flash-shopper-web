@@ -4,7 +4,7 @@ const ReactDOM = require('react-dom');
 class ItemCard extends Component {
 
   deleteItem(id){
-    console.log(id);
+    this.props.removeItem(id);
   }
 
   render() {

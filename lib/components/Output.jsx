@@ -4,6 +4,10 @@ const ReactDOM = require('react-dom');
 
 class Output extends Component {
 
+  removeItem(id){
+    console.log(id);
+  }
+
   render() {
 
     let itemList;
@@ -13,6 +17,7 @@ class Output extends Component {
         <ItemCard
           {...item}
           deleteItem={ deleteItem }
+          removeItem={ this.removeItem }
         />
       );
     }
