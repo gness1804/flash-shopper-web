@@ -12,11 +12,26 @@ class Application extends Component {
     };
   }
 
+  componentDidMount(){
+    //render ideas to page; pass the info into Output
+  }
+
+  addNewItem(newItem) {
+    this.state.items.push(newItem);
+    const { items } = this.state;
+    this.setState({ items }, () => this.store());
+  }
+
+  store() {
+    localStorage.setItem('items', JSON.stringify(this.state.items));
+  }
+
   render() {
+
     return (
       <div>
         <h1 id="top-of-page">My Grocery List</h1>
-        <Input />
+        <Input addNewItem={this.addNewItem.bind(this)} />
         <Output />
         <a href="#top-of-page"><button id="top-of-page-button" type="button">Top of Page</button></a>
       </div>

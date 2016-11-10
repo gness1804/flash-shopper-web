@@ -5,7 +5,14 @@ class Output extends Component {
 
   render() {
     return (
-      <div>Hello! This is a test.</div>
+      <div>
+        <article id="item-status-message">
+
+        </article>
+        <section id="items-master-container">
+
+        </section>
+      </div>
     );
   }
 
