@@ -4,9 +4,9 @@ const ReactDOM = require('react-dom');
 
 class Output extends Component {
 
-  deleteItem(id) {
-    console.log(id);
-  }
+  // deleteItem(id) {
+  //   this.props.remove(id);
+  // }
 
   render() {
 
@@ -18,7 +18,7 @@ class Output extends Component {
       itemList = items.map( item =>
         <ItemCard
           {...item}
-          deleteItem={this.deleteItem}
+          deleteItem={ this.props.deleteItem }
         />
       );
     }
