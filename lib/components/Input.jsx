@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Datalist from './Datalist';
 import Category from './Category';
+import aisles from './Aisles';
 
 const ReactDOM = require('react-dom');
 
@@ -13,28 +14,11 @@ class Input extends Component {
       note: '',
       quantity: null,
       id: null,
+      submitDisabled: true,
     };
   }
 
   assignAisle = (category) => {
-    const aisles = {
-      'Bottled Water': 20,
-      'Breads/PBJ/Honey': 13,
-      'Canned Beans/Tomatoes/Soups': 7,
-      'Canned Fish/Ethnic Foods/Pasta+Pasta Sauce/Rice': 6,
-      'Chips/Nuts': 19,
-      'Cooking Wines/Condiments/Olives': 2,
-      'Deli/Prepared Foods': 'Deli',
-      'Dish and Laundry Detergent': 9,
-      'Frozen Items': 11,
-      'Household Goods': 8,
-      'Medicines (OTC)': 18,
-      'Office Supplies': 16,
-      'Personal Care Items': 17,
-      Soda: 22,
-      'Spices and Baking Items': 5,
-    }
-
     this.setState({ aisle: aisles[category] });
   }
 
@@ -52,6 +36,7 @@ class Input extends Component {
     this.setState({ note: '' });
     this.setState({ quantity: null });
     this.setState({ id: null });
+    this.setState({ submitDisabled: true });
   }
 
   deleteAllItems(){
@@ -68,6 +53,9 @@ class Input extends Component {
 
   updateName(e) {
     this.setState({ name: e.target.value });
+    if (e.target.value.length > 0) {
+      this.setState({ submitDisabled: false });
+    }
   }
 
   updateNote(e) {
@@ -78,19 +66,25 @@ class Input extends Component {
     this.setState({ aisle: e.target.value });
   }
 
+  validateNameField(e){
+    if (e.target.value.length <= 0) {
+      this.setState({ submitDisabled: true });
+    }
+  }
+
   render() {
 
-    const { name, aisle, note, quantity, id } = this.state;
+    const { name, aisle, note, quantity, id, submitDisabled } = this.state;
 
     return (
       <div id="input-items-container">
-        <input id="item-input" value={this.state.name} type="text" placeholder="Item Name" list="groceries" onChange={(e) => { this.updateName(e); }} />
+        <input id="item-input" value={this.state.name} type="text" placeholder="Item Name" list="groceries" onChange={(e) => { this.updateName(e); }} onBlur={(e) => { this.validateNameField(e) }} />
         <Datalist />
-        <Category assignAisle={this.assignAisle}/>
+        <Category assignAisle={this.assignAisle} />
         <input id="aisle-input" value={this.state.aisle} type="text" placeholder="Aisle" onChange={(e) => { this.updateAisle(e); }} />
         <input id="note" value={this.state.note} type="text" placeholder="Note" onChange={(e) => { this.updateNote(e) }} />
         <input id="quantity" value={this.state.quantity} type="text" placeholder="Quantity (incl. unit)" onChange={(e) => { this.updateQuantity(e) }} />
-        <button id="submit-button" type="button" onClick={() => { this.createNewItem(name, aisle, note, quantity, id); }}>Submit</button>
+        <button id="submit-button" type="button" onClick={() => { this.createNewItem(name, aisle, note, quantity, id); }} disabled={submitDisabled}>Submit</button>
         <button id="sort-items-button" type="button" onClick={() => { this.sortItems(); }}>Sort Items</button>
         <button id="delete-all-items-button" type="button" onClick={() => { this.deleteAllItems(); }}>Delete ALL Items!</button>
         </div>
@@ -98,6 +92,5 @@ class Input extends Component {
   }
 
 }
-
 
 export default Input;
