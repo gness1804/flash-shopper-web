@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Datalist from './Datalist';
 import Category from './Category';
+import aisles from './Aisles';
 
 const ReactDOM = require('react-dom');
 
@@ -17,24 +18,6 @@ class Input extends Component {
   }
 
   assignAisle = (category) => {
-    const aisles = {
-      'Bottled Water': 20,
-      'Breads/PBJ/Honey': 13,
-      'Canned Beans/Tomatoes/Soups': 7,
-      'Canned Fish/Ethnic Foods/Pasta+Pasta Sauce/Rice': 6,
-      'Chips/Nuts': 19,
-      'Cooking Wines/Condiments/Olives': 2,
-      'Deli/Prepared Foods': 'Deli',
-      'Dish and Laundry Detergent': 9,
-      'Frozen Items': 11,
-      'Household Goods': 8,
-      'Medicines (OTC)': 18,
-      'Office Supplies': 16,
-      'Personal Care Items': 17,
-      Soda: 22,
-      'Spices and Baking Items': 5,
-    }
-
     this.setState({ aisle: aisles[category] });
   }
 

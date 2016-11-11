@@ -19,6 +19,7 @@ class ItemCard extends Component {
 
   saveEdits() {
     this.setState({ editable: false });
+    //more stuff here
   }
 
   render() {
@@ -30,10 +31,10 @@ class ItemCard extends Component {
 
     if (editable) {
       display = <div>
-        <input defaultValue={name} />
-        <input />
-        <input />
-        <input />
+        <input defaultValue={name} placeholder="Item Name" />
+        <input defaultValue={aisle} placeholder="Aisle" />
+        <input defaultValue={quantity} placeholder="Quantity" />
+        <input defaultValue={note} placeholder="Note" />
         <button onClick={() => { this.saveEdits() }}>Save Edits</button>
         <button className="delete-button" onClick={() => { this.deleteItem(id); }}>Delete Item</button>
       </div>
