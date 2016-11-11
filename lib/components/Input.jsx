@@ -36,6 +36,7 @@ class Input extends Component {
     this.setState({ note: '' });
     this.setState({ quantity: null });
     this.setState({ id: null });
+    this.setState({ submitDisabled: true });
   }
 
   deleteAllItems(){
@@ -91,6 +92,5 @@ class Input extends Component {
   }
 
 }
-
 
 export default Input;
