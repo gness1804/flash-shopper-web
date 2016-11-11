@@ -12,7 +12,7 @@ class Output extends Component {
       itemList = items.map( item =>
         <ItemCard
           {...item}
-          deleteItem={ this.props.deleteItem }
+          deleteItem={this.props.deleteItem}
         />
       );
     }
@@ -20,7 +20,7 @@ class Output extends Component {
     return (
       <div>
         <article id="item-status-message">
-
+          {this.props.items.length > 0 ? <p>Item(s) remaining: {this.props.items.length}</p> : <p>There are no items on your list!</p>}
         </article>
         <section id="items-master-container">
           {itemList}
