@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase, { signIn, signOut } from '../firebase';
 import Input from './Input';
 import Output from './Output';
 
