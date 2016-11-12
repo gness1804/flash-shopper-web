@@ -37,7 +37,7 @@ class ItemCard extends Component {
         <input defaultValue={aisle} placeholder="Aisle" />
         <input defaultValue={quantity} placeholder="Quantity" />
         <input defaultValue={note} placeholder="Note" />
-        <button onClick={() => { this.saveEdits(id) }}>Save Edits</button>
+        <button className="save-edits-button" onClick={() => { this.saveEdits(id) }}>Save Edits</button>
         <button className="delete-button" onClick={() => { this.deleteItem(id); }}>Delete Item</button>
       </div>
     } else {
