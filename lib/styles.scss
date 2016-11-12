@@ -31,10 +31,10 @@ input {
 }
 
 #submit-button {
-  @include submit-button;
+  @include green-buttons;
 
   &:hover {
-    @include submit-button-hover;
+    @include green-buttons-hover;
   }
 
 }

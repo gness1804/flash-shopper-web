@@ -1,10 +1,10 @@
 @import "variables.scss";
 
-@mixin submit-button {
+@mixin green-buttons {
   background-color: rgb(160, 236, 175);
 }
 
-@mixin submit-button-hover {
+@mixin green-buttons-hover {
   background-color: rgb(42, 203, 254);
   cursor: pointer;
 }
