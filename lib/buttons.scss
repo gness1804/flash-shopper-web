@@ -18,11 +18,11 @@
   cursor: pointer;
 }
 
-@mixin delete-and-delete-all-buttons {
+@mixin red-buttons {
   background-color: rgb(219, 101, 93);
 }
 
-@mixin delete-and-delete-all-buttons-hover {
+@mixin red-buttons-hover {
   background-color: rgb(238, 73, 20);
   cursor: pointer;
 }

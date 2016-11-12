@@ -92,10 +92,10 @@ input {
 }
 
 .delete-button, #delete-all-items-button {
-  @include delete-and-delete-all-buttons;
+  @include red-buttons;
 
   &:hover {
-    @include delete-and-delete-all-buttons-hover;
+    @include red-buttons-hover;
   }
 
 }
