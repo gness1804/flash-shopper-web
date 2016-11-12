@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/public/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -29659,7 +29659,7 @@
 	          } }),
 	        _react2.default.createElement(_Datalist2.default, null),
 	        _react2.default.createElement(_Category2.default, { assignAisle: this.assignAisle }),
-	        _react2.default.createElement('input', { id: 'aisle-input', value: this.state.aisle, type: 'text', placeholder: 'Aisle', onChange: function onChange(e) {
+	        _react2.default.createElement('input', { id: 'aisle-input', value: this.state.aisle, type: 'number', placeholder: 'Aisle', onChange: function onChange(e) {
 	            _this2.updateAisle(e);
 	          } }),
 	        _react2.default.createElement('input', { id: 'note', value: this.state.note, type: 'text', placeholder: 'Note', onChange: function onChange(e) {
@@ -30137,7 +30137,7 @@
 	          _react2.default.createElement('input', { defaultValue: note, placeholder: 'Note' }),
 	          _react2.default.createElement(
 	            'button',
-	            { onClick: function onClick() {
+	            { className: 'save-edits-button', onClick: function onClick() {
 	                _this2.saveEdits(id);
 	              } },
 	            'Save Edits'
@@ -30180,7 +30180,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'button',
-	            { onClick: function onClick() {
+	            { className: 'edit-button', onClick: function onClick() {
 	                _this2.makeEditable();
 	              } },
 	            'Edit Item'
@@ -30243,7 +30243,7 @@
 	
 	
 	// module
-	exports.push([module.id, "@media screen and (max-width: 800px) {\n  input, select {\n    display: block;\n    margin: 10px auto;\n    width: 200px; } }\n\nhtml {\n  background: linear-gradient(to bottom, #8694f7, #fcfdfe);\n  font-family: \"Open Sans\", sans-serif;\n  height: 2000px;\n  text-align: center; }\n\nh1 {\n  font-size: 40px;\n  text-align: center; }\n\n#input-items-container {\n  text-align: center; }\n\ninput {\n  border: 1px solid black; }\n  input:hover {\n    border: 1px solid magenta; }\n\n#submit-button {\n  background-color: #a0ecaf; }\n  #submit-button:hover {\n    background-color: #2acbfe;\n    cursor: pointer; }\n\n#sort-items-button, #top-of-page-button {\n  background-color: #cff4f5; }\n  #sort-items-button:hover, #top-of-page-button:hover {\n    background-color: #8edfdf;\n    cursor: pointer; }\n\n#item-status-message {\n  font-size: 24px;\n  font-style: italic;\n  margin: 30px auto;\n  text-align: center; }\n\n#items-master-container {\n  border: 1px solid black;\n  margin: 50px auto;\n  min-height: 400px;\n  padding: 0 10px; }\n  #items-master-container li {\n    list-style-type: none; }\n\n.each-idea-container {\n  background-color: white;\n  border: 1px solid black;\n  margin: 20px auto;\n  padding: 10px;\n  text-align: center; }\n\n.each-idea-container h2 {\n  font-weight: bold; }\n\n.each-idea-container h4 {\n  font-style: italic; }\n\n.delete-button, #delete-all-items-button {\n  background-color: #db655d; }\n  .delete-button:hover, #delete-all-items-button:hover {\n    background-color: #ee4914;\n    cursor: pointer; }\n", ""]);
+	exports.push([module.id, "@media screen and (max-width: 800px) {\n  input, select {\n    display: block;\n    margin: 10px auto;\n    width: 200px; } }\n\nhtml {\n  background: linear-gradient(to bottom, #8694f7, #fcfdfe);\n  font-family: \"Open Sans\", sans-serif;\n  height: 2000px;\n  text-align: center; }\n\nh1 {\n  font-size: 40px;\n  text-align: center; }\n\n#input-items-container {\n  text-align: center; }\n\ninput {\n  border: 1px solid black; }\n  input:hover {\n    border: 1px solid magenta; }\n\n#submit-button {\n  background-color: #a0ecaf; }\n  #submit-button:hover {\n    background-color: #2acbfe;\n    cursor: pointer; }\n\n#sort-items-button, #top-of-page-button {\n  background-color: #cff4f5; }\n  #sort-items-button:hover, #top-of-page-button:hover {\n    background-color: #8edfdf;\n    cursor: pointer; }\n\n.edit-button, .save-edits-button {\n  background-color: #cff4f5; }\n  .edit-button:hover, .save-edits-button:hover {\n    background-color: #8effdf;\n    cursor: pointer; }\n\n#item-status-message {\n  font-size: 24px;\n  font-style: italic;\n  margin: 30px auto;\n  text-align: center; }\n\n#items-master-container {\n  border: 1px solid black;\n  margin: 50px auto;\n  min-height: 400px;\n  padding: 0 10px; }\n  #items-master-container li {\n    list-style-type: none; }\n\n.each-idea-container {\n  background-color: white;\n  border: 1px solid black;\n  margin: 20px auto;\n  padding: 10px;\n  text-align: center; }\n\n.each-idea-container h2 {\n  font-weight: bold; }\n\n.each-idea-container h4 {\n  font-style: italic; }\n\n.delete-button, #delete-all-items-button {\n  background-color: #db655d; }\n  .delete-button:hover, #delete-all-items-button:hover {\n    background-color: #ee4914;\n    cursor: pointer; }\n", ""]);
 	
 	// exports
 
