@@ -49,7 +49,7 @@ input {
 }
 
 .edit-button {
-
+  @include edit-button;
 }
 
 #item-status-message {
