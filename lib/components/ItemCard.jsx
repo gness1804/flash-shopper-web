@@ -37,7 +37,7 @@ class ItemCard extends Component {
         <input defaultValue={aisle} placeholder="Aisle" />
         <input defaultValue={quantity} placeholder="Quantity" />
         <input defaultValue={note} placeholder="Note" />
-        <button onClick={() => { this.saveEdits(id) }}>Save Edits</button>
+        <button className="save-edits-button" onClick={() => { this.saveEdits(id) }}>Save Edits</button>
         <button className="delete-button" onClick={() => { this.deleteItem(id); }}>Delete Item</button>
       </div>
     } else {
@@ -46,7 +46,7 @@ class ItemCard extends Component {
         <h3 className="editable-aisle">Aisle: {aisle}</h3>
         <h4 className="note">Your Note: {note}</h4>
         <h5 className="quantity">Quantity: {quantity}</h5>
-        <button onClick={() => { this.makeEditable(); }}>Edit Item</button>
+        <button className="edit-button" onClick={() => { this.makeEditable(); }}>Edit Item</button>
         <button className="delete-button" onClick={() => { this.deleteItem(id); }}>Delete Item</button>
       </div>
     }

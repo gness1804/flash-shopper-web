@@ -30,3 +30,8 @@
 @mixin edit-button {
   background-color: rgb(207, 244, 245);
 }
+
+@mixin edit-button-hover {
+ background-color: rgb(142, 2223, 223);
+ cursor: pointer;
+}
