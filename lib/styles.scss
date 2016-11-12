@@ -40,10 +40,10 @@ input {
 }
 
 #sort-items-button, #top-of-page-button {
-  @include sort-and-top-of-page-buttons;
+  @include blue-buttons;
 
   &:hover{
-    @include sort-and-top-of-page-buttons-hover;
+    @include blue-buttons-hover;
   }
 
 }

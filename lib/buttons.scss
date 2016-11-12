@@ -9,11 +9,11 @@
   cursor: pointer;
 }
 
-@mixin sort-and-top-of-page-buttons {
+@mixin blue-buttons {
   background-color: rgb(207, 244, 245);
 }
 
-@mixin sort-and-top-of-page-buttons-hover  {
+@mixin blue-buttons-hover  {
   background-color: rgb(142, 223, 223);
   cursor: pointer;
 }
