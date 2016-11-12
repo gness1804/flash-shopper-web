@@ -10,6 +10,8 @@ class Application extends Component {
     super();
     this.state = {
       items: [],
+      user: null,
+      itemsDatabase: null,
     };
   }
 
@@ -25,7 +27,11 @@ class Application extends Component {
   }
 
   assignDatabase = (user) => {
-        console.log(user)
+  this.setState({
+    user,
+    itemsDatabase: user ? firebase.database().ref(user.uid) : null,
+  });
+        
   }      
 
   deleteItem = (id) => {
@@ -64,12 +70,12 @@ class Application extends Component {
 
   render() {
 
-    const { items } = this.state;
+    const { items, user } = this.state;
 
     return (
       <div>
         <h1 id="top-of-page">My Grocery List</h1>
-        <button className="sign-in-button" onClick={() => signIn()}>Sign In</button>
+        { user ? <button>Sign Out</button> : <button className="sign-in-button" onClick={() => signIn()}>Sign In</button>}
         <Input addNewItem={this.addNewItem.bind(this)} deleteAllItems={this.deleteAllItems} sortItems={this.sortItems} />
         <Output items={items} deleteItem={this.deleteItem} />
         <a href="#top-of-page"><button id="top-of-page-button" type="button">Top of Page</button></a>
