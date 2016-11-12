@@ -49,10 +49,10 @@ input {
 }
 
 .edit-button, .save-edits-button {
-  @include edit-button;
+  @include blue-buttons;
 
   &:hover{
-   @include edit-button-hover; 
+   @include blue-buttons-hover; 
   }
 }
 
