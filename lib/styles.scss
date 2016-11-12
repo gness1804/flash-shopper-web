@@ -30,7 +30,7 @@ input {
 
 }
 
-#submit-button {
+#submit-button, .sign-in-button {
   @include green-buttons;
 
   &:hover {
@@ -91,7 +91,7 @@ input {
   font-style: italic;
 }
 
-.delete-button, #delete-all-items-button {
+.delete-button, #delete-all-items-button, .sign-out-button {
   @include red-buttons;
 
   &:hover {
