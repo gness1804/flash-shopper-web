@@ -42,6 +42,10 @@ class Application extends Component {
     }
   }
 
+  signIn(){
+     console.log('test');
+  }
+
   store() {
     localStorage.setItem('items', JSON.stringify(this.state.items));
   }
@@ -58,6 +62,7 @@ class Application extends Component {
     return (
       <div>
         <h1 id="top-of-page">My Grocery List</h1>
+        <button className="sign-in-button" onClick={() => {this.signIn()}}>Sign In</button>
         <Input addNewItem={this.addNewItem.bind(this)} deleteAllItems={this.deleteAllItems} sortItems={this.sortItems} />
         <Output items={items} deleteItem={this.deleteItem} />
         <a href="#top-of-page"><button id="top-of-page-button" type="button">Top of Page</button></a>
