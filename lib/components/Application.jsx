@@ -14,12 +14,19 @@ class Application extends Component {
   }
 
   componentDidMount(){
-    const items = JSON.parse(localStorage.getItem('items'));
-    if (items) {
-      this.setState({ items });
-    } else {
-    this.setState({ items: [] });}
+    //const items = JSON.parse(localStorage.getItem('items'));
+
+   firebase.auth().onAuthStateChanged(user => this.assignDatabase(user));
+    
+    //if (items) {
+    //  this.setState({ items });
+    //} else {
+    //this.setState({ items: [] });}
   }
+
+  assignDatabase = (user) => {
+        console.log(user)
+  }      
 
   deleteItem = (id) => {
     const warning = confirm('Are you sure you want to delete this item?');
@@ -42,10 +49,9 @@ class Application extends Component {
     }
   }
 
-  //signIn(){
-  // let provider = new firebase.auth.GoogleAuthProvider();
-  // this.auth.signInWithPopup(provider);
-  //}
+  onAuthStateChanged(user){
+       console.log(user);
+ }
 
   store() {
     localStorage.setItem('items', JSON.stringify(this.state.items));
