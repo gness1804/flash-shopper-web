@@ -50,6 +50,10 @@ input {
 
 .edit-button {
   @include edit-button;
+
+  &:hover{
+   @include edit-button-hover; 
+  }
 }
 
 #item-status-message {
