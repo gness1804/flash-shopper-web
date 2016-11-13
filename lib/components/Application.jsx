@@ -51,8 +51,6 @@ class Application extends Component {
      for (var i = 0; i < newArr.length; i++){
   db.push(newArr[i]);   
      };
-    //db.push(newArr);
-    //this.setState({ items : newArr }); 
     }
   }
 
@@ -67,9 +65,6 @@ class Application extends Component {
   }
 
   addNewItem(newItem) {
-    //this.state.items.push(newItem);
-    //const { items } = this.state;
-    //this.setState({ items }, () => this.store());
     this.state.itemsDatabase.push(newItem);
   }
 
@@ -85,13 +80,14 @@ class Application extends Component {
   onAuthStateChanged(user){
  }
 
-//  store() {
-//    localStorage.setItem('items', JSON.stringify(this.state.items));
-//  }
-
   sortItems = () => {
+    const user = this.state.user;
     const newArr = this.state.items.sort((a, b) => { return a.aisle - b.aisle });
-    this.setState({ items: newArr }, () => this.store());
+    const db = (firebase.database().ref(user.displayName));
+     db.remove();
+     for (var i = 0; i < newArr.length; i++){
+  db.push(newArr[i]);   
+     };
   }
 
   warnAndSignOut(){
