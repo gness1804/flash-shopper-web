@@ -69,9 +69,11 @@ class Application extends Component {
   }
 
   deleteAllItems = () => {
+    const user = this.state.user;
     const warning = confirm("Warning! You are about to delete ALL your items! This cannot be undone!");
     if (warning) {
-      this.setState({ items: [] }, () => this.store());
+      const db = (firebase.database().ref(user.displayName));
+     db.remove();
     }
   }
 
