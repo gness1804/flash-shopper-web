@@ -8,7 +8,6 @@ class Output extends Component {
 
     let itemList;
     const { items } = this.props;
-    console.log(this.props);
     if (items) {
       itemList = items.map( item =>
         <ItemCard

@@ -42,13 +42,15 @@ class Application extends Component {
  }
 
   deleteItem = (id) => {
+    const user = this.state.user;
     const warning = confirm('Are you sure you want to delete this item?');
     if (warning) {
-      
+     const db = (firebase.database().ref(user.displayName));
+     db.push({name: 'foo'}); 
     }
   }
 
-  returnArray(snapshots){
+  returnArray(snapshots, key){
      let array = [];
     if (snapshots) {
       let fullArray = Object.keys(snapshots).map((each)=>{
@@ -73,7 +75,6 @@ class Application extends Component {
   }
 
   onAuthStateChanged(user){
-       //console.log(user);
  }
 
 //  store() {
@@ -93,7 +94,6 @@ class Application extends Component {
   }
 
   render() {
-       console.log(this.state.items);
     const { items, user } = this.state;
 
     return (
