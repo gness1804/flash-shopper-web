@@ -19,7 +19,11 @@ class Input extends Component {
   }
 
   assignAisle = (category) => {
-    this.setState({ aisle: aisles[category] });
+    if (category === 'Produce'){
+        this.setState({ note: category});
+    } else {
+        this.setState({ aisle: aisles[category] });
+    }
   }
 
   createNewItem(name, aisle, note, quantity) {

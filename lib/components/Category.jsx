@@ -25,7 +25,9 @@ class Category extends Component {
                <option>Household Goods</option>
                <option>Medicines (OTC)</option>
                <option>Office Supplies</option>
+
                <option>Personal Care Items</option>
+               <option>Produce</option>
                <option>Soda</option>
                <option>Spices and Baking Items</option>
          </select>
