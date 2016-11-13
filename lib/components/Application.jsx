@@ -30,9 +30,22 @@ class Application extends Component {
   this.setState({
     user,
     itemsDatabase: user ? firebase.database().ref(user.displayName) : null,
-  });
+  }, () => {
+    this.listenToPutItemsOnPage(user);          
+   });
         
   }      
+
+ listenToPutItemsOnPage = (user) => {
+   if (user) {
+    firebase.database().ref(user.displayName).on('value', (snapshot) => {
+     const items = snapshot.val() || {};
+     this.setState({ items: [] });   
+     });
+  } else {
+    this.setState({items: []});
+  }   
+ }
 
   deleteItem = (id) => {
     const warning = confirm('Are you sure you want to delete this item?');
