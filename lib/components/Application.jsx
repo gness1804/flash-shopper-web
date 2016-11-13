@@ -46,7 +46,8 @@ class Application extends Component {
     const warning = confirm('Are you sure you want to delete this item?');
     if (warning) {
      const db = (firebase.database().ref(user.displayName));
-     db.push({name: 'foo'}); 
+     db.remove();
+     //const target = db.orderByChild('name').equalTo('foo');
     }
   }
 
