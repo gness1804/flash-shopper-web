@@ -45,9 +45,14 @@ class Application extends Component {
     const user = this.state.user;
     const warning = confirm('Are you sure you want to delete this item?');
     if (warning) {
+      const newArr = this.state.items.filter((item) => {return item.id !== id});
      const db = (firebase.database().ref(user.displayName));
      db.remove();
-     //const target = db.orderByChild('name').equalTo('foo');
+     for (var i = 0; i < newArr.length; i++){
+  db.push(newArr[i]);   
+     };
+    //db.push(newArr);
+    //this.setState({ items : newArr }); 
     }
   }
 
