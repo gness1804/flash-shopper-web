@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { map, extend } from 'lodash';
 import firebase, { signIn, signOut } from '../firebase';
 import Input from './Input';
 import Output from './Output';
@@ -40,7 +41,7 @@ class Application extends Component {
    if (user) {
     firebase.database().ref(user.displayName).on('value', (snapshot) => {
      const items = snapshot.val() || {};
-     this.setState({ items: [] });   
+     this.setState({ items: map(items, (val, key) => extend(val, {key})) });   
      });
   } else {
     this.setState({items: []});
