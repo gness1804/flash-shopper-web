@@ -17,7 +17,7 @@ class Application extends Component {
 
   componentDidMount(){
     //const items = JSON.parse(localStorage.getItem('items'));
-
+        //console.log(this.state.itemsDatabase);
    firebase.auth().onAuthStateChanged(user => this.assignDatabase(user));
     
     //if (items) {
@@ -29,7 +29,7 @@ class Application extends Component {
   assignDatabase = (user) => {
   this.setState({
     user,
-    itemsDatabase: user ? firebase.database().ref(user.uid) : null,
+    itemsDatabase: user ? firebase.database().ref(user.displayName) : null,
   });
         
   }      
@@ -43,9 +43,10 @@ class Application extends Component {
   }
 
   addNewItem(newItem) {
-    this.state.items.push(newItem);
-    const { items } = this.state;
-    this.setState({ items }, () => this.store());
+    //this.state.items.push(newItem);
+    //const { items } = this.state;
+    //this.setState({ items }, () => this.store());
+    this.state.itemsDatabase.push(newItem);
   }
 
   deleteAllItems = () => {
