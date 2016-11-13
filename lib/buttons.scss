@@ -1,37 +1,30 @@
 @import "variables.scss";
 
-@mixin submit-button {
+@mixin green-buttons {
   background-color: rgb(160, 236, 175);
 }
 
-@mixin submit-button-hover {
+@mixin green-buttons-hover {
   background-color: rgb(42, 203, 254);
   cursor: pointer;
 }
 
-@mixin sort-and-top-of-page-buttons {
+@mixin blue-buttons {
   background-color: rgb(207, 244, 245);
 }
 
-@mixin sort-and-top-of-page-buttons-hover  {
+@mixin blue-buttons-hover  {
   background-color: rgb(142, 223, 223);
   cursor: pointer;
 }
 
-@mixin delete-and-delete-all-buttons {
+@mixin red-buttons {
   background-color: rgb(219, 101, 93);
 }
 
-@mixin delete-and-delete-all-buttons-hover {
+@mixin red-buttons-hover {
   background-color: rgb(238, 73, 20);
   cursor: pointer;
 }
 
-@mixin edit-button {
-  background-color: rgb(207, 244, 245);
-}
 
-@mixin edit-button-hover {
- background-color: rgb(142, 2223, 223);
- cursor: pointer;
-}

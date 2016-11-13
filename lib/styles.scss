@@ -30,29 +30,29 @@ input {
 
 }
 
-#submit-button {
-  @include submit-button;
+#submit-button, .sign-in-button {
+  @include green-buttons;
 
   &:hover {
-    @include submit-button-hover;
+    @include green-buttons-hover;
   }
 
 }
 
 #sort-items-button, #top-of-page-button {
-  @include sort-and-top-of-page-buttons;
+  @include blue-buttons;
 
   &:hover{
-    @include sort-and-top-of-page-buttons-hover;
+    @include blue-buttons-hover;
   }
 
 }
 
 .edit-button, .save-edits-button {
-  @include edit-button;
+  @include blue-buttons;
 
   &:hover{
-   @include edit-button-hover; 
+   @include blue-buttons-hover; 
   }
 }
 
@@ -91,11 +91,11 @@ input {
   font-style: italic;
 }
 
-.delete-button, #delete-all-items-button {
-  @include delete-and-delete-all-buttons;
+.delete-button, #delete-all-items-button, .sign-out-button {
+  @include red-buttons;
 
   &:hover {
-    @include delete-and-delete-all-buttons-hover;
+    @include red-buttons-hover;
   }
 
 }

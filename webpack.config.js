@@ -4,10 +4,11 @@ module.exports = {
   entry: {
     main: ['babel-polyfill', './lib/index.js']
   },
-output: {
-     path: __dirname,
-     filename: '[name].bundle.js',
-   },
+  output: {
+    path: path.join(__dirname, 'public'),
+    publicPath: '/public/',
+    filename: '[name].bundle.js',
+  },
   module: {
     loaders: [
       {
@@ -15,7 +16,8 @@ output: {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
-      	  presets: ['es2015', 'react', 'stage-0']	
+          presets: ['es2015', 'react', 'stage-1'],
+          plugins: ['transform-class-properties'],
         },
       },
       { test: /\.css$/, loader: 'style!css' },
