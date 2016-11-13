@@ -17,14 +17,7 @@ class Application extends Component {
   }
 
   componentDidMount(){
-    //const items = JSON.parse(localStorage.getItem('items'));
-        //console.log(this.state.itemsDatabase);
    firebase.auth().onAuthStateChanged(user => this.assignDatabase(user));
-    
-    //if (items) {
-    //  this.setState({ items });
-    //} else {
-    //this.setState({ items: [] });}
   }
 
   assignDatabase = (user) => {
@@ -40,8 +33,8 @@ class Application extends Component {
  listenToPutItemsOnPage = (user) => {
    if (user) {
     firebase.database().ref(user.displayName).on('value', (snapshot) => {
-     const items = snapshot.val() || {};
-     this.setState({ items: map(items, (val, key) => extend(val, {key})) });   
+     const items = this.returnArray(snapshot.val());
+     this.setState({ items });
      });
   } else {
     this.setState({items: []});
@@ -51,9 +44,18 @@ class Application extends Component {
   deleteItem = (id) => {
     const warning = confirm('Are you sure you want to delete this item?');
     if (warning) {
-      const newArr = this.state.items.filter((item) => { return item.id !== id });
-      this.setState({ items: newArr }, () => { this.store(); });
+      
     }
+  }
+
+  returnArray(snapshots){
+     let array = [];
+    if (snapshots) {
+      let fullArray = Object.keys(snapshots).map((each)=>{
+        array.push(snapshots[each]);
+      });
+    }
+    return array;  
   }
 
   addNewItem(newItem) {
@@ -71,12 +73,12 @@ class Application extends Component {
   }
 
   onAuthStateChanged(user){
-       console.log(user);
+       //console.log(user);
  }
 
-  store() {
-    localStorage.setItem('items', JSON.stringify(this.state.items));
-  }
+//  store() {
+//    localStorage.setItem('items', JSON.stringify(this.state.items));
+//  }
 
   sortItems = () => {
     const newArr = this.state.items.sort((a, b) => { return a.aisle - b.aisle });
@@ -91,7 +93,7 @@ class Application extends Component {
   }
 
   render() {
-
+       console.log(this.state.items);
     const { items, user } = this.state;
 
     return (
