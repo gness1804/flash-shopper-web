@@ -43,6 +43,8 @@ class Input extends Component {
     this.setState({ quantity: null });
     this.setState({ id: null });
     this.setState({ submitDisabled: true });
+    document.getElementById('category').value = 'Please choose a category.';
+
   }
 
   deleteAllItems(){
