@@ -48100,7 +48100,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'button',
-	            { disabled: true, className: 'edit-button', onClick: function onClick() {
+	            { hidden: true, className: 'edit-button', onClick: function onClick() {
 	                _this2.makeEditable();
 	              } },
 	            'Edit Item'
