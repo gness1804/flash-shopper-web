@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { map, extend } from 'lodash';
+import { map, extend, sortBy } from 'lodash';
 import firebase, { signIn, signOut } from '../firebase';
 import Input from './Input';
 import Output from './Output';
@@ -89,6 +89,14 @@ class Application extends Component {
      for (var i = 0; i < newArr.length; i++){
   db.push(newArr[i]);   
      };
+  }
+
+  sortAlpha = () => {
+    const user = this.state.user;
+    const items = this.state.items;
+    //const newArr = this.state.items.sort((a, b) => { return a.name - b.name });
+    const newArr = _.sortBy(items, 'name');
+    console.log(newArr);
   }
 
   warnAndSignOut(){
