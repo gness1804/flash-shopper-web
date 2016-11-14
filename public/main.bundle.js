@@ -29436,6 +29436,7 @@
 	      }, function () {
 	        _this.listenToPutItemsOnPage(user);
 	      });
+	      _this.setState({ userName: user.displayName });
 	    };
 	
 	    _this.listenToPutItemsOnPage = function (user) {
@@ -29488,6 +29489,7 @@
 	    _this.state = {
 	      items: [],
 	      user: null,
+	      userName: '',
 	      itemsDatabase: null
 	    };
 	    return _this;
@@ -29527,6 +29529,7 @@
 	      var warning = confirm('Are you sure you want to sign out?');
 	      if (warning) {
 	        (0, _firebase.signOut)();
+	        this.setState({ userName: '' });
 	      }
 	    }
 	  }, {
@@ -29536,7 +29539,8 @@
 	
 	      var _state = this.state,
 	          items = _state.items,
-	          user = _state.user;
+	          user = _state.user,
+	          userName = _state.userName;
 	
 	
 	      return _react2.default.createElement(
@@ -29559,6 +29563,21 @@
 	              return (0, _firebase.signIn)();
 	            } },
 	          'Sign In'
+	        ),
+	        userName ? _react2.default.createElement(
+	          'p',
+	          { className: 'logged-in-as' },
+	          '-Logged in as: ',
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'login-name' },
+	            userName,
+	            '-'
+	          )
+	        ) : _react2.default.createElement(
+	          'p',
+	          { className: 'logged-in-as' },
+	          'You are not logged in!'
 	        ),
 	        _react2.default.createElement(_Input2.default, { addNewItem: this.addNewItem.bind(this), deleteAllItems: this.deleteAllItems, sortItems: this.sortItems }),
 	        _react2.default.createElement(_Output2.default, { items: items, deleteItem: this.deleteItem }),
@@ -48118,7 +48137,7 @@
 	
 	
 	// module
-	exports.push([module.id, "@media screen and (max-width: 800px) {\n  input, select {\n    display: block;\n    margin: 10px auto;\n    width: 200px; } }\n\nhtml {\n  background: linear-gradient(to bottom, #8694f7, #fcfdfe);\n  font-family: \"Open Sans\", sans-serif;\n  height: 2000px;\n  text-align: center; }\n\nh1 {\n  font-size: 40px;\n  text-align: center; }\n\n#input-items-container {\n  text-align: center; }\n\ninput {\n  border: 1px solid black; }\n  input:hover {\n    border: 1px solid magenta; }\n\n#submit-button, .sign-in-button {\n  background-color: #a0ecaf; }\n  #submit-button:hover, .sign-in-button:hover {\n    background-color: #2acbfe;\n    cursor: pointer; }\n\n#sort-items-button, #top-of-page-button {\n  background-color: #cff4f5; }\n  #sort-items-button:hover, #top-of-page-button:hover {\n    background-color: #8edfdf;\n    cursor: pointer; }\n\n.edit-button, .save-edits-button {\n  background-color: #cff4f5; }\n  .edit-button:hover, .save-edits-button:hover {\n    background-color: #8edfdf;\n    cursor: pointer; }\n\n#item-status-message {\n  font-size: 24px;\n  font-style: italic;\n  margin: 30px auto;\n  text-align: center; }\n\n#items-master-container {\n  border: 1px solid black;\n  margin: 50px auto;\n  min-height: 400px;\n  padding: 0 10px; }\n  #items-master-container li {\n    list-style-type: none; }\n\n.each-idea-container {\n  background-color: white;\n  border: 1px solid black;\n  margin: 20px auto;\n  padding: 10px;\n  text-align: center; }\n\n.each-idea-container h2 {\n  font-weight: bold; }\n\n.each-idea-container h4 {\n  font-style: italic; }\n\n.delete-button, #delete-all-items-button, .sign-out-button {\n  background-color: #db655d; }\n  .delete-button:hover, #delete-all-items-button:hover, .sign-out-button:hover {\n    background-color: #ee4914;\n    cursor: pointer; }\n", ""]);
+	exports.push([module.id, "@media screen and (max-width: 800px) {\n  input, select {\n    display: block;\n    margin: 10px auto;\n    width: 200px; } }\n\nhtml {\n  background: linear-gradient(to bottom, #8694f7, #fcfdfe);\n  font-family: \"Open Sans\", sans-serif;\n  height: 2000px;\n  text-align: center; }\n\nh1 {\n  font-size: 40px;\n  text-align: center; }\n\n#input-items-container {\n  text-align: center; }\n\ninput {\n  border: 1px solid black; }\n  input:hover {\n    border: 1px solid magenta; }\n\n.logged-in-as {\n  font-size: 20px;\n  margin: 20px auto; }\n\n.login-name {\n  font-style: italic; }\n\n#submit-button, .sign-in-button {\n  background-color: #a0ecaf; }\n  #submit-button:hover, .sign-in-button:hover {\n    background-color: #2acbfe;\n    cursor: pointer; }\n\n#sort-items-button, #top-of-page-button {\n  background-color: #cff4f5; }\n  #sort-items-button:hover, #top-of-page-button:hover {\n    background-color: #8edfdf;\n    cursor: pointer; }\n\n.edit-button, .save-edits-button {\n  background-color: #cff4f5; }\n  .edit-button:hover, .save-edits-button:hover {\n    background-color: #8edfdf;\n    cursor: pointer; }\n\n#item-status-message {\n  font-size: 24px;\n  font-style: italic;\n  margin: 30px auto;\n  text-align: center; }\n\n#items-master-container {\n  border: 1px solid black;\n  margin: 50px auto;\n  min-height: 400px;\n  padding: 0 10px; }\n  #items-master-container li {\n    list-style-type: none; }\n\n.each-idea-container {\n  background-color: white;\n  border: 1px solid black;\n  margin: 20px auto;\n  padding: 10px;\n  text-align: center; }\n\n.each-idea-container h2 {\n  font-weight: bold; }\n\n.each-idea-container h4 {\n  font-style: italic; }\n\n.delete-button, #delete-all-items-button, .sign-out-button {\n  background-color: #db655d; }\n  .delete-button:hover, #delete-all-items-button:hover, .sign-out-button:hover {\n    background-color: #ee4914;\n    cursor: pointer; }\n", ""]);
 	
 	// exports
 
