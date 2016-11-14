@@ -95,6 +95,7 @@ class Application extends Component {
     const warning = confirm('Are you sure you want to sign out?');
     if (warning) {
       signOut();     
+      this.setState({ userName: ''});
     }
   }
 
