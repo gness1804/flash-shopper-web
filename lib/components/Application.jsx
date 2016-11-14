@@ -96,7 +96,11 @@ class Application extends Component {
     const items = this.state.items;
     //const newArr = this.state.items.sort((a, b) => { return a.name - b.name });
     const newArr = _.sortBy(items, 'name');
-    console.log(newArr);
+    const db = (firebase.database().ref(user.displayName));
+     db.remove();
+     for (var i = 0; i < newArr.length; i++){
+  db.push(newArr[i]);   
+     };
   }
 
   warnAndSignOut(){
