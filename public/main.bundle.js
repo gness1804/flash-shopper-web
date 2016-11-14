@@ -29450,26 +29450,39 @@
 	    };
 	
 	    _this.deleteItem = function (id) {
+	      var user = _this.state.user;
 	      var warning = confirm('Are you sure you want to delete this item?');
-	      if (warning) {}
+	      if (warning) {
+	        var newArr = _this.state.items.filter(function (item) {
+	          return item.id !== id;
+	        });
+	        var db = _firebase2.default.database().ref(user.displayName);
+	        db.remove();
+	        for (var i = 0; i < newArr.length; i++) {
+	          db.push(newArr[i]);
+	        };
+	      }
 	    };
 	
 	    _this.deleteAllItems = function () {
+	      var user = _this.state.user;
 	      var warning = confirm("Warning! You are about to delete ALL your items! This cannot be undone!");
 	      if (warning) {
-	        _this.setState({ items: [] }, function () {
-	          return _this.store();
-	        });
+	        var db = _firebase2.default.database().ref(user.displayName);
+	        db.remove();
 	      }
 	    };
 	
 	    _this.sortItems = function () {
+	      var user = _this.state.user;
 	      var newArr = _this.state.items.sort(function (a, b) {
 	        return a.aisle - b.aisle;
 	      });
-	      _this.setState({ items: newArr }, function () {
-	        return _this.store();
-	      });
+	      var db = _firebase2.default.database().ref(user.displayName);
+	      db.remove();
+	      for (var i = 0; i < newArr.length; i++) {
+	        db.push(newArr[i]);
+	      };
 	    };
 	
 	    _this.state = {
@@ -29503,19 +29516,11 @@
 	  }, {
 	    key: 'addNewItem',
 	    value: function addNewItem(newItem) {
-	      //this.state.items.push(newItem);
-	      //const { items } = this.state;
-	      //this.setState({ items }, () => this.store());
 	      this.state.itemsDatabase.push(newItem);
 	    }
 	  }, {
 	    key: 'onAuthStateChanged',
 	    value: function onAuthStateChanged(user) {}
-	
-	    //  store() {
-	    //    localStorage.setItem('items', JSON.stringify(this.state.items));
-	    //  }
-	
 	  }, {
 	    key: 'warnAndSignOut',
 	    value: function warnAndSignOut() {
@@ -47399,7 +47404,11 @@
 	    var _this = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
 	
 	    _this.assignAisle = function (category) {
-	      _this.setState({ aisle: _Aisles2.default[category] });
+	      if (category === 'Produce' || category === 'Meat' || category === 'Deli/Prepared Foods' || category === 'Checkout' || category === 'Bakery' || category === 'Pest Control(Front of Store)') {
+	        _this.setState({ note: category });
+	      } else {
+	        _this.setState({ aisle: _Aisles2.default[category] });
+	      }
 	    };
 	
 	    _this.state = {
@@ -47690,6 +47699,11 @@
 	          _react2.default.createElement(
 	            'option',
 	            null,
+	            'Bakery'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            null,
 	            'Bottled Water'
 	          ),
 	          _react2.default.createElement(
@@ -47710,12 +47724,22 @@
 	          _react2.default.createElement(
 	            'option',
 	            null,
+	            'Checkout'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            null,
 	            'Chips/Nuts'
 	          ),
 	          _react2.default.createElement(
 	            'option',
 	            null,
 	            'Cooking Wines/Condiments/Olives'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            null,
+	            'Deli/Prepared Foods'
 	          ),
 	          _react2.default.createElement(
 	            'option',
@@ -47735,6 +47759,11 @@
 	          _react2.default.createElement(
 	            'option',
 	            null,
+	            'Meat'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            null,
 	            'Medicines (OTC)'
 	          ),
 	          _react2.default.createElement(
@@ -47746,6 +47775,16 @@
 	            'option',
 	            null,
 	            'Personal Care Items'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            null,
+	            'Pest Control(Front of Store)'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            null,
+	            'Produce'
 	          ),
 	          _react2.default.createElement(
 	            'option',
@@ -47851,7 +47890,6 @@
 	      var itemList = void 0;
 	      var items = this.props.items;
 	
-	      console.log(this.props);
 	      if (items) {
 	        itemList = items.map(function (item) {
 	          return _react2.default.createElement(_ItemCard2.default, _extends({}, item, {
