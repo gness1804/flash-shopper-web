@@ -29560,7 +29560,7 @@
 	        _react2.default.createElement(
 	          'h1',
 	          { id: 'top-of-page' },
-	          'My Grocery List'
+	          'Flash Shopper'
 	        ),
 	        user ? _react2.default.createElement(
 	          'button',
