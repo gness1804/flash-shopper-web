@@ -12,6 +12,7 @@ class Application extends Component {
     this.state = {
       items: [],
       user: null,
+      userName: '',
       itemsDatabase: null,
     };
   }
@@ -27,7 +28,7 @@ class Application extends Component {
   }, () => {
     this.listenToPutItemsOnPage(user);          
    });
-        
+       this.setState({ userName: user.displayName}); 
   }      
 
  listenToPutItemsOnPage = (user) => {
@@ -98,12 +99,13 @@ class Application extends Component {
   }
 
   render() {
-    const { items, user } = this.state;
+    const { items, user, userName } = this.state;
 
     return (
       <div>
         <h1 id="top-of-page">My Grocery List</h1>
         { user ? <button className="sign-out-button" onClick={() => this.warnAndSignOut()}>Sign Out</button> : <button className="sign-in-button" onClick={() => signIn()}>Sign In</button>}
+        { userName ? <p>Logged in as: <span>{userName}</span></p> : <p>You are not logged in!</p> }
         <Input addNewItem={this.addNewItem.bind(this)} deleteAllItems={this.deleteAllItems} sortItems={this.sortItems} />
         <Output items={items} deleteItem={this.deleteItem} />
         <a href="#top-of-page"><button id="top-of-page-button" type="button">Top of Page</button></a>
