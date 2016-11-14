@@ -19,7 +19,7 @@ class Input extends Component {
   }
 
   assignAisle = (category) => {
-    if (category === 'Produce'){
+    if (category === 'Produce' || category === 'Meat' || category === 'Deli/Prepared Foods' || category === 'Checkout' || category === 'Bakery' || category === 'Pest Control(Front of Store)'){
         this.setState({ note: category});
     } else {
         this.setState({ aisle: aisles[category] });
