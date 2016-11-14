@@ -94,7 +94,6 @@ class Application extends Component {
   sortAlpha = () => {
     const user = this.state.user;
     const items = this.state.items;
-    //const newArr = this.state.items.sort((a, b) => { return a.name - b.name });
     const newArr = _.sortBy(items, 'name');
     const db = (firebase.database().ref(user.displayName));
      db.remove();

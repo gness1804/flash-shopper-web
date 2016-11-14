@@ -48,7 +48,7 @@ input {
 
 }
 
-#sort-items-button, #top-of-page-button {
+#sort-items-button, #top-of-page-button, #sort-alpha-button {
   @include blue-buttons;
 
   &:hover{
