@@ -30,6 +30,15 @@ input {
 
 }
 
+.logged-in-as {
+   font-size: 20px;
+   margin: 20px auto;
+}
+
+.login-name {
+   font-style: italic;
+}
+
 #submit-button, .sign-in-button {
   @include green-buttons;
 

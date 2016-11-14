@@ -106,7 +106,7 @@ class Application extends Component {
       <div>
         <h1 id="top-of-page">My Grocery List</h1>
         { user ? <button className="sign-out-button" onClick={() => this.warnAndSignOut()}>Sign Out</button> : <button className="sign-in-button" onClick={() => signIn()}>Sign In</button>}
-        { userName ? <p>Logged in as: <span>{userName}</span></p> : <p>You are not logged in!</p> }
+        { userName ? <p className="logged-in-as">-Logged in as: <span className="login-name">{userName}-</span></p> : <p className="logged-in-as">You are not logged in!</p> }
         <Input addNewItem={this.addNewItem.bind(this)} deleteAllItems={this.deleteAllItems} sortItems={this.sortItems} />
         <Output items={items} deleteItem={this.deleteItem} />
         <a href="#top-of-page"><button id="top-of-page-button" type="button">Top of Page</button></a>
