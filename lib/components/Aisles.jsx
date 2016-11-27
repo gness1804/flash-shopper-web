@@ -9,6 +9,7 @@ const aisles = {
   'Cooking Wines/Condiments/Olives': 2,
   'Dish+Laundry Detergent': 9,
   'Frozen Items': 11,
+  'Juice (Not Orange)': 3, 
   'Household Goods': 8,
   'Medicines (OTC)': 18,
   'Office Supplies': 16,
