@@ -22,7 +22,7 @@ class Category extends Component {
                <option>Checkout</option>
                <option>Chips/Nuts</option>
                <option>Cooking Wines/Condiments/Olives</option>
-               <option>Dairy</option>
+               <option>Dairy and Orange Juice</option>
                <option>Deli/Prepared Foods</option>
                <option>Dish+Laundry Detergent</option>
                <option>Frozen Items</option>
