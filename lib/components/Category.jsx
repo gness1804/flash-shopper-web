@@ -33,7 +33,7 @@ class Category extends Component {
                <option>Office Supplies</option>
 
                <option>Personal Care Items</option>
-               <option>Pest Control(Front of Store)</option>
+               <option>Pest Control (Front of Store)</option>
                <option>Produce</option>
                <option>Soda</option>
                <option>Spices and Baking Items</option>
