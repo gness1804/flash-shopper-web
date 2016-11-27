@@ -47436,7 +47436,7 @@
 	    _this.assignAisle = function (category) {
 	      _this.setState({ note: '' });
 	      _this.setState({ aisle: '' });
-	      if (category === 'Produce' || category === 'Meat' || category === 'Deli/Prepared Foods' || category === 'Checkout' || category === 'Bakery' || category === 'Pest Control(Front of Store)') {
+	      if (category === 'Produce' || category === 'Meat' || category === 'Deli/Prepared Foods' || category === 'Checkout' || category === 'Bakery' || category === 'Pest Control(Front of Store)' || category === 'Dairy and Orange Juice') {
 	        _this.setState({ note: category });
 	      } else {
 	        _this.setState({ aisle: _Aisles2.default[category] });
@@ -47784,6 +47784,11 @@
 	          _react2.default.createElement(
 	            'option',
 	            null,
+	            'Dairy and Orange Juice'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            null,
 	            'Deli/Prepared Foods'
 	          ),
 	          _react2.default.createElement(
@@ -47800,6 +47805,11 @@
 	            'option',
 	            null,
 	            'Household Goods'
+	          ),
+	          _react2.default.createElement(
+	            'option',
+	            null,
+	            'Juice (Not Orange)'
 	          ),
 	          _react2.default.createElement(
 	            'option',
@@ -47824,7 +47834,7 @@
 	          _react2.default.createElement(
 	            'option',
 	            null,
-	            'Pest Control(Front of Store)'
+	            'Pest Control (Front of Store)'
 	          ),
 	          _react2.default.createElement(
 	            'option',
@@ -47876,6 +47886,7 @@
 	  'Cooking Wines/Condiments/Olives': 2,
 	  'Dish+Laundry Detergent': 9,
 	  'Frozen Items': 11,
+	  'Juice (Not Orange)': 3,
 	  'Household Goods': 8,
 	  'Medicines (OTC)': 18,
 	  'Office Supplies': 16,
