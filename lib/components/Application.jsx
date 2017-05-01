@@ -1,6 +1,8 @@
 // @flow
 
 import React, { Component } from 'react';
+import * as firebase from 'firebase';
+import firebaseApp from '../../firebaseConfig';  // eslint-disable-line
 
 class Application extends Component {
   constructor() {
@@ -15,7 +17,7 @@ class Application extends Component {
     return (
       <div>
         <h1 id="top-of-page">Flash Shopper</h1>
-        <p>Hello world</p>
+       
       </div>
     );
   }
