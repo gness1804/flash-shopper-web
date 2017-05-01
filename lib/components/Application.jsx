@@ -1,13 +1,12 @@
+// @flow
+
 import React, { Component } from 'react';
 
 class Application extends Component {
   constructor() {
     super();
     this.state = {
-      items: [],
-      user: null,
-      userName: '',
-      itemsDatabase: null,
+     
     };
   }
 
