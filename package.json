@@ -10,7 +10,7 @@
     "sel": "java -jar selenium-server-standalone-2.53.0.jar",
     "feature": "wdio wdio.conf.js",
     "flow": "flow",
-    "lint": "eslint ."
+    "lint": "eslint lib"
   },
   "author": "Graham Nessler",
   "license": "ISC",

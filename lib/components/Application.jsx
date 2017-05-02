@@ -9,8 +9,12 @@ class Application extends Component {
   constructor() {
     super();
     this.state = {
-     showAuthScreen: false,
-    };
+      showAuthScreen: false,
+    }
+  }
+
+  state: {
+    showAuthScreen: boolean,
   }
 
   render() {
