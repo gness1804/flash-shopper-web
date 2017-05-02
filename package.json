@@ -9,7 +9,8 @@
     "test": "mocha",
     "sel": "java -jar selenium-server-standalone-2.53.0.jar",
     "feature": "wdio wdio.conf.js",
-    "flow": "flow"
+    "flow": "flow",
+    "lint": "eslint ."
   },
   "author": "Graham Nessler",
   "license": "ISC",
