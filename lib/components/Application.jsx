@@ -21,6 +21,24 @@ class Application extends Component {
     userId: string,
   }
 
+  componentDidMount = (): void => {
+    this.initializeApp()
+  }
+
+  initializeApp = ():void => {
+    firebase.auth().onAuthStateChanged((user: Object) => {
+      if (user) {
+        console.log(user)
+        // const email = cleanUpUserEmail(user.email)
+        // this.setState({ userEmail: user.email })
+        // this.setState({ userId: user.uid })
+        // this.itemsRef = firebase.database().ref(email + '/main') //eslint-disable-line
+        // this.hideAuthScreen()
+        // this.listenForItems(this.itemsRef)
+      }
+    })
+  }
+
   render() {
     const { showAuthScreen } = this.state
 
