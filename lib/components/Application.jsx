@@ -65,11 +65,25 @@ class Application extends Component {
     });
   }
 
+  showAuthScreen = (): void => {
+    this.setState({ showAuthScreen: true })
+  }
+
+  logOut = (): void => {
+    const warning = confirm('Are you sure you want to log out?')
+    if (warning) {
+      firebase.auth().signOut()
+      this.showAuthScreen()
+    }
+  }
+
   render() {
-    const { showAuthScreen, items } = this.state
+    const { showAuthScreen, items, userEmail } = this.state
     return (
       <div>
         <h1 id="top-of-page">Flash Shopper</h1>
+        {userEmail && <h3>Logged in as {userEmail}</h3>}
+        {userEmail && <button onClick={() => { this.logOut() }}>Log Out</button>}
         {showAuthScreen && <AuthScreen />}
       </div>
     );
